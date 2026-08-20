@@ -1,11 +1,11 @@
-import {
-    playDealerTurn,
-    calculateCards,
-    existInProgress,
-    getCard,
-} from "./utils.js";
+import { playDealerTurn, calculateCards, getCard } from "./utils.js";
 
 export function roundsService(roundsRepo, playersRepo) {
+    async function existInProgress(id) {
+        const result = await roundsRepo.findActiveByPlayerId(id);
+        return result;
+    }
+    
     return {
         create: async (player, bet) => {
             if (bet <= 0 || bet > player.chips) {

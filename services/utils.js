@@ -1,18 +1,11 @@
-import { playersRepo } from "../repos/playersRepo.js";
-import { roundsRepo } from "../repos/roundsRepo.js";
 
 export function getCard() {
-    const ranks = ["A", 2, 3, 4, 5, 6, 7, 8, 9, "J", "Q", "K"];
+    const ranks = ["A", 2, 3, 4, 5, 6, 7, 8, 9, 10, "J", "Q", "K"];
     const suits = ["diamonds", "hearts", "clubs", "spades"];
     return {
         rank: ranks[Math.floor(Math.random() * 12)],
         suit: suits[Math.floor(Math.random() * 4)],
     };
-}
-
-export async function existInProgress(id) {
-    const result = await roundsRepo.findActiveByPlayerId(id);
-    return result;
 }
 
 export function calculateCards(cards) {
