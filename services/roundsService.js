@@ -1,5 +1,3 @@
-import { playersRepo } from "../repos/players.js";
-import { roundsRepo } from "../repos/rounds.js";
 import {
     playDealerTurn,
     calculateCards,
@@ -7,7 +5,7 @@ import {
     getCard,
 } from "./utils.js";
 
-export function roundsService(roundsRepo) {
+export function roundsService(roundsRepo, playersRepo) {
     return {
         create: async (player, bet) => {
             if (bet <= 0 || bet > player.chips) {

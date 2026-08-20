@@ -1,12 +1,12 @@
 import express from "express";
 import { playersService } from "../services/playersService.js";
-import { playersRepo } from "../repos/players.js";
+import { playersRepo } from "../repos/playersRepo.js";
 import { roundsService } from "../services/roundsService.js";
-import { roundsRepo } from "../repos/rounds.js";
+import { roundsRepo } from "../repos/roundsRepo.js";
 import { auth } from "./middleware.js";
 
 const playersServices = playersService(playersRepo);
-const roundServices = roundsService(roundsRepo);
+const roundServices = roundsService(roundsRepo, playersRepo);
 
 export const router = express.Router();
 

@@ -1,4 +1,4 @@
-import { playersRepo } from "../repos/players.js";
+import { playersRepo } from "../repos/playersRepo.js";
 
 
 export const logger = (req, res, next) => {
